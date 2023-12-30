@@ -17,7 +17,9 @@
             
             const numberOfRows = prompt('Also enter the number of rows:', '4');
 
-            function createSquares(num) {
+            createRows(parseInt(numberOfRows), parseInt(numberOfSquares));
+
+            function createSquares(num, divRow) {
                 for (let i = 0; i < num; i++) {
                     const square = document.createElement('div');
                     square.className = 'square';
@@ -38,15 +40,17 @@
                     divRow.appendChild(square);
                 }
             }
-        });
+       
 
         function createRows(numrow, numline) {
                 for (let i = 0; i < numrow; i++){
                     const divRow = document.createElement('div');
-                    divRow.style.display = 'flex';
-                    createSquares(numline);
+                    divRow.style.flex = '1';
+                    createSquares(numline, divRow);
+                    flexContainer.appendChild(divRow);
                 }
             };
+        });
     </script>
 </body>
     
